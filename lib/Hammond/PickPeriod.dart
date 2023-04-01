@@ -3,9 +3,7 @@ import 'package:usb_checkout_system/Hammond/Period1.dart';
 import 'package:usb_checkout_system/Hammond/Period2.dart';
 import 'package:usb_checkout_system/Hammond/Period4.dart';
 
-/// This is documentation for HPickPeriod
-/// This is more documentation
-/// This is more documentation
+/// Hammond page, let him pick what period he is on
 class HPickPeriod extends StatefulWidget {
   const HPickPeriod({super.key});
 
