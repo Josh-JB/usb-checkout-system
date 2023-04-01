@@ -3,6 +3,9 @@ import 'package:usb_checkout_system/Hammond/Period1.dart';
 import 'package:usb_checkout_system/Hammond/Period2.dart';
 import 'package:usb_checkout_system/Hammond/Period4.dart';
 
+/// This is documentation for HPickPeriod
+/// This is more documentation
+/// This is more documentation
 class HPickPeriod extends StatefulWidget {
   const HPickPeriod({super.key});
 
@@ -12,20 +15,19 @@ class HPickPeriod extends StatefulWidget {
 }
 
 class _HPickPeriodState extends State<HPickPeriod> {
-
   void _goToHPeriod1Page() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const HPeriod1 ()));
+        .push(MaterialPageRoute(builder: (context) => const HPeriod1()));
   }
 
   void _goToHPeriod2Page() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const HPeriod2 ()));
+        .push(MaterialPageRoute(builder: (context) => const HPeriod2()));
   }
 
   void _goToHPeriod3Page() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const HPeriod3 ()));
+        .push(MaterialPageRoute(builder: (context) => const HPeriod3()));
   }
 
   @override
@@ -49,15 +51,23 @@ class _HPickPeriodState extends State<HPickPeriod> {
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: [
-                Text('Period 2', style: Theme.of(context).textTheme.headlineSmall,),
-                ElevatedButton(onPressed: _goToHPeriod2Page, child: Text('Click Here')),
+                Text(
+                  'Period 2',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                ElevatedButton(
+                    onPressed: _goToHPeriod2Page, child: Text('Click Here')),
               ],
             ),
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: [
-                Text('Period 4', style: Theme.of(context).textTheme.headlineSmall,),
-                ElevatedButton(onPressed: _goToHPeriod3Page, child: Text('Click Here')),
+                Text(
+                  'Period 4',
+                  style: Theme.of(context).textTheme.headlineSmall,
+                ),
+                ElevatedButton(
+                    onPressed: _goToHPeriod3Page, child: Text('Click Here')),
               ],
             ),
             const Spacer(),
