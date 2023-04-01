@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:usb_checkout_system/Easter_Egg.dart';
+import 'package:usb_checkout_system/EasterEgg/Easter_Egg.dart';
 import 'package:usb_checkout_system/Hammond/PickPeriod.dart';
 import 'package:usb_checkout_system/Reed/PickPeriod.dart';
 
@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _goToEasterPage() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const text()));
+        .push(MaterialPageRoute(builder: (context) => const EasterEgg()));
   }
 
   @override

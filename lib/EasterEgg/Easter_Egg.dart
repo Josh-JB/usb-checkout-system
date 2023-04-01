@@ -2,16 +2,17 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:usb_checkout_system/EasterEgg/EasterEgg_end.dart';
 import 'package:usb_checkout_system/Hammond/Period1.dart';
 
-class text extends StatefulWidget {
-  const text({super.key});
+class EasterEgg extends StatefulWidget {
+  const EasterEgg({super.key});
 
   @override
-  State<text> createState() => _textState();
+  State<EasterEgg> createState() => _EasterEggState();
 }
 
-class _textState extends State<text> {
+class _EasterEggState extends State<EasterEgg> {
   Color background1 = Colors.white;
   Color background2 = Colors.white;
   Color background3 = Colors.white;
@@ -24,15 +25,29 @@ class _textState extends State<text> {
 
   int progress = 0;
   int whatbutton = 0;
+  int reset = 0;
 
-  void _goToHPeriod1Page() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const HPeriod1()));
+  void _goToEasterEndPage() {
+    Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) => const EasterEggEndPage()));
   }
 
   void _changeColor(int _whatbutton) {
     setState(() {
-      if (progress == 0 && 1 == _whatbutton) {
+      if (reset == 1) {
+        background1 = Colors.white;
+        background2 = Colors.white;
+        background3 = Colors.white;
+        background4 = Colors.white;
+        background5 = Colors.white;
+        background6 = Colors.white;
+        background7 = Colors.white;
+        background8 = Colors.white;
+        background9 = Colors.white;
+        progress = 0;
+        whatbutton = 0;
+        reset = 0;
+      } else if (progress == 0 && 1 == _whatbutton && reset == 0) {
         background1 = Colors.green;
         progress++;
         whatbutton = 0;
@@ -67,27 +82,35 @@ class _textState extends State<text> {
       } else if (progress == 8 && 9 == _whatbutton) {
         background9 = Colors.green;
         progress++;
-        sleep(const Duration(seconds: 2));
-        _goToHPeriod1Page();
+        _goToEasterEndPage();
       } else {
         if (progress == 0) {
           background1 = Colors.red;
+          reset++;
         } else if (progress == 1) {
           background2 = Colors.red;
+          reset++;
         } else if (progress == 2) {
           background3 = Colors.red;
+          reset++;
         } else if (progress == 3) {
           background4 = Colors.red;
+          reset++;
         } else if (progress == 4) {
           background5 = Colors.red;
+          reset++;
         } else if (progress == 5) {
           background6 = Colors.red;
+          reset++;
         } else if (progress == 6) {
           background7 = Colors.red;
+          reset++;
         } else if (progress == 7) {
           background8 = Colors.red;
+          reset++;
         } else if (progress == 8) {
           background9 = Colors.red;
+          reset++;
         } else {
           background1 = Colors.red;
           background2 = Colors.red;
@@ -98,10 +121,8 @@ class _textState extends State<text> {
           background7 = Colors.red;
           background8 = Colors.red;
           background9 = Colors.red;
+          reset++;
         }
-      }
-      if (progress > 9) {
-        progress = 0;
       }
     });
   }
