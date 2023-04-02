@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:usb_checkout_system/EasterEgg/EasterEgg_end.dart';
-import 'package:usb_checkout_system/Hammond/Period1.dart';
 
 class EasterEgg extends StatefulWidget {
   const EasterEgg({super.key});

@@ -51,6 +51,30 @@ class _HPeriod2State extends State<HPeriod2> {
             items: StudentsList
             .map((e) => DropdownMenuItem(value: e, child: Text(e.toString())))
             .toList(),),
+            FormBuilderDropdown(name: "Students", 
+            decoration: const InputDecoration(
+            labelText: "USB 5"),
+            items: StudentsList
+            .map((e) => DropdownMenuItem(value: e, child: Text(e.toString())))
+            .toList(),),
+            FormBuilderDropdown(name: "Students", 
+            decoration: const InputDecoration(
+            labelText: "USB 6"),
+            items: StudentsList
+            .map((e) => DropdownMenuItem(value: e, child: Text(e.toString())))
+            .toList(),),
+            FormBuilderDropdown(name: "Students", 
+            decoration: const InputDecoration(
+            labelText: "USB 7"),
+            items: StudentsList
+            .map((e) => DropdownMenuItem(value: e, child: Text(e.toString())))
+            .toList(),),
+            FormBuilderDropdown(name: "Students", 
+            decoration: const InputDecoration(
+            labelText: "USB 8"),
+            items: StudentsList
+            .map((e) => DropdownMenuItem(value: e, child: Text(e.toString())))
+            .toList(),),
             const Spacer(),
           ],
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:usb_checkout_system/EasterEgg/Easter_Egg.dart';
 import 'package:usb_checkout_system/Hammond/PickPeriod.dart';
 import 'package:usb_checkout_system/Reed/PickPeriod.dart';
@@ -32,6 +33,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Color DefaultColor = Colors.blue;
+  int whatcolor = 0;
   void _goToHPickPeriodPage() {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const HPickPeriod()));
@@ -47,11 +50,24 @@ class _MyHomePageState extends State<MyHomePage> {
         .push(MaterialPageRoute(builder: (context) => const EasterEgg()));
   }
 
+  void _SwitchDefualtColor(bool){
+    setState(() {
+      if(whatcolor == 0){
+        DefaultColor = Colors.amber;
+        whatcolor++;
+      }else{
+        DefaultColor = Colors.blue;
+        whatcolor--;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        backgroundColor: DefaultColor,
       ),
       body: Center(
         child: Column(
@@ -76,8 +92,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(DefaultColor)),
                     onPressed: _goToHPickPeriodPage,
-                    child: const Text('Click Here'))
+                    child: const Text('Click Here')),
               ],
             ),
             const Divider(),
@@ -89,10 +108,19 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(DefaultColor)),
                     onPressed: _goToRPickPeriodPage,
                     child: const Text('Click Here'))
               ],
             ),
+            FormBuilderSwitch(
+                      title: const Text('            Banana'),
+                      name: 'Banana Color',
+                      initialValue: false,
+                      onChanged: _SwitchDefualtColor,
+                    ),
             const Spacer(),
             ButtonBar(
               alignment: MainAxisAlignment.end,
