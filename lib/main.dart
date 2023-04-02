@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:usb_checkout_system/Drawer/DrawerNav.dart';
+import 'package:usb_checkout_system/Drawer/Setting.dart';
 import 'package:usb_checkout_system/EasterEgg/Easter_Egg.dart';
 import 'package:usb_checkout_system/Hammond/PickPeriod.dart';
 import 'package:usb_checkout_system/Reed/PickPeriod.dart';
@@ -34,7 +36,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Color DefaultColor = Colors.blue;
-  int whatcolor = 0;
+  int whatcolorS = 0;
+  String whatcolorR = 'Blue';
   void _goToHPickPeriodPage() {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const HPickPeriod()));
@@ -50,14 +53,45 @@ class _MyHomePageState extends State<MyHomePage> {
         .push(MaterialPageRoute(builder: (context) => const EasterEgg()));
   }
 
+  void _goToSettingPage() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const Setting()));
+  }
+
   void _SwitchDefualtColor(bool){
     setState(() {
-      if(whatcolor == 0){
+      if(whatcolorS == 0){
         DefaultColor = Colors.amber;
-        whatcolor++;
+        whatcolorS++;
       }else{
         DefaultColor = Colors.blue;
-        whatcolor--;
+        whatcolorS--;
+      }
+    });
+  }
+
+  void _RadioDefualtColor(whatcolorR){
+    setState(() {
+      if(whatcolorR == 'Blue'){
+        DefaultColor = Colors.blue;
+      }else if(whatcolorR == 'Red'){
+        DefaultColor = Colors.red;
+      }else if(whatcolorR == 'Amber'){
+        DefaultColor = Colors.amber;
+      }else if(whatcolorR == 'Green'){
+        DefaultColor = Colors.green;
+      }else if(whatcolorR == 'Purple'){
+        DefaultColor = Colors.purple;
+      }else if(whatcolorR == 'Brown'){
+        DefaultColor = Colors.brown;
+      }else if(whatcolorR == 'Cyan'){
+        DefaultColor = Colors.cyan;
+      }else if(whatcolorR == 'Orange'){
+        DefaultColor = Colors.orange;
+      }else if(whatcolorR == 'Pink'){
+        DefaultColor = Colors.pink;
+      }else if(whatcolorR == 'Yellow'){
+        DefaultColor = Colors.yellow;
       }
     });
   }
@@ -68,6 +102,24 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
         backgroundColor: DefaultColor,
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+              child: const Center(
+                child: Text(
+                  "Main Menu",
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ),
+            DrawerTile(
+                tileText: "Setting", onTap:_goToSettingPage),
+          ],
+        ),
       ),
       body: Center(
         child: Column(
@@ -115,12 +167,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: const Text('Click Here'))
               ],
             ),
-            FormBuilderSwitch(
-                      title: const Text('            Banana'),
-                      name: 'Banana Color',
-                      initialValue: false,
-                      onChanged: _SwitchDefualtColor,
-                    ),
             const Spacer(),
             ButtonBar(
               alignment: MainAxisAlignment.end,
