@@ -35,7 +35,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Color DefaultColor = Colors.blue;
+  Color DefaultColor = Colors.red;
   int whatcolorS = 0;
   String whatcolorR = 'Blue';
   void _goToHPickPeriodPage() {
@@ -58,44 +58,6 @@ class _MyHomePageState extends State<MyHomePage> {
         .push(MaterialPageRoute(builder: (context) => const Setting()));
   }
 
-  void _SwitchDefualtColor(bool){
-    setState(() {
-      if(whatcolorS == 0){
-        DefaultColor = Colors.amber;
-        whatcolorS++;
-      }else{
-        DefaultColor = Colors.blue;
-        whatcolorS--;
-      }
-    });
-  }
-
-  void _RadioDefualtColor(whatcolorR){
-    setState(() {
-      if(whatcolorR == 'Blue'){
-        DefaultColor = Colors.blue;
-      }else if(whatcolorR == 'Red'){
-        DefaultColor = Colors.red;
-      }else if(whatcolorR == 'Amber'){
-        DefaultColor = Colors.amber;
-      }else if(whatcolorR == 'Green'){
-        DefaultColor = Colors.green;
-      }else if(whatcolorR == 'Purple'){
-        DefaultColor = Colors.purple;
-      }else if(whatcolorR == 'Brown'){
-        DefaultColor = Colors.brown;
-      }else if(whatcolorR == 'Cyan'){
-        DefaultColor = Colors.cyan;
-      }else if(whatcolorR == 'Orange'){
-        DefaultColor = Colors.orange;
-      }else if(whatcolorR == 'Pink'){
-        DefaultColor = Colors.pink;
-      }else if(whatcolorR == 'Yellow'){
-        DefaultColor = Colors.yellow;
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(color: Theme.of(context).primaryColor),
+              decoration: BoxDecoration(color: DefaultColor),
               child: const Center(
                 child: Text(
                   "Main Menu",

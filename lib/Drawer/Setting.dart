@@ -13,6 +13,7 @@ class Setting extends StatefulWidget {
 class _SettingState extends State<Setting> {
   Color DefaultColor = Colors.blue;
   String whatcolorR = 'Blue';
+  int whatcolorS = 0;
   void _RadioDefualtColor(whatcolorR){
     setState(() {
       if(whatcolorR == 'Blue'){
@@ -38,6 +39,19 @@ class _SettingState extends State<Setting> {
       }
     });
   }
+
+    void _SwitchDefualtColor(bool){
+    setState(() {
+      if(whatcolorS == 0){
+        DefaultColor = Colors.amber;
+        whatcolorS++;
+      }else{
+        DefaultColor = Colors.blue;
+        whatcolorS--;
+      }
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
