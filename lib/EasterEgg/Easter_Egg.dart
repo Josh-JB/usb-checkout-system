@@ -130,7 +130,7 @@ class _EasterEggState extends State<EasterEgg> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('tap to go back'),
+        title: const Text('Easy mode'),
       ),
       body: Center(
           child: Column(

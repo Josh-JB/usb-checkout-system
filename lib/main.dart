@@ -1,13 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 // import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:usb_checkout_system/Drawer/DrawerNav.dart';
 import 'package:usb_checkout_system/Drawer/Setting.dart';
 import 'package:usb_checkout_system/EasterEgg/Easter_Egg.dart';
 import 'package:usb_checkout_system/Hammond/PickPeriod.dart';
 import 'package:usb_checkout_system/Reed/PickPeriod.dart';
+import 'package:usb_checkout_system/models/theme.model.dart';
 
-void main() {
-  runApp(const MyApp());
+import 'EasterEgg/Easter_Egg_Hard.dart';
+
+void main() async {
+  final prefs = await SharedPreferences.getInstance();
+
+  ThemeModel themeModel = ThemeModel(prefs);
+  themeModel.initialize();
+
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider<ThemeModel>(create: (_) => themeModel),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -15,13 +30,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primaryColor: const Color.fromARGB(255, 5, 82, 216),
-      ),
-      home: const MyHomePage(title: 'USB Checkout System Home Page'),
-    );
+    return Consumer<ThemeModel>(
+        builder: (BuildContext context, ThemeModel model, _) => MaterialApp(
+              title: 'Flutter Demo',
+              theme: model.getLightTheme(),
+              darkTheme: model.getDarkTheme(),
+              themeMode: model.theme,
+              home: const MyHomePage(title: 'USB Checkout System Home Page'),
+            ));
   }
 }
 
@@ -35,9 +51,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Color DefaultColor = const Color.fromARGB(255, 5, 82, 216);
-  int whatcolorS = 0;
-  String whatcolorR = 'Blue';
   void _goToHPickPeriodPage() {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const HPickPeriod()));
@@ -53,6 +66,11 @@ class _MyHomePageState extends State<MyHomePage> {
         .push(MaterialPageRoute(builder: (context) => const EasterEgg()));
   }
 
+  void _goToEasterHardPage() {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => const EasterEggHard()));
+  }
+
   void _goToSettingPage() {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const Setting()));
@@ -63,14 +81,13 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
-        backgroundColor: DefaultColor,
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
-              decoration: BoxDecoration(color: DefaultColor),
+              decoration: BoxDecoration(color: Theme.of(context).primaryColor),
               child: const Center(
                 child: Text(
                   "Main Menu",
@@ -78,8 +95,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            DrawerTile(
-                tileText: "Setting", onTap:_goToSettingPage),
+            DrawerTile(tileText: "Setting", onTap: _goToSettingPage),
           ],
         ),
       ),
@@ -106,9 +122,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(DefaultColor)),
                     onPressed: _goToHPickPeriodPage,
                     child: const Text('Click Here')),
               ],
@@ -122,9 +135,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(DefaultColor)),
                     onPressed: _goToRPickPeriodPage,
                     child: const Text('Click Here'))
               ],
@@ -137,8 +147,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Colors.white)),
+                  onPressed: _goToEasterHardPage,
+                  child: const Text('Hard Easter Egg'),
+                ),
+                ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.white)),
                   onPressed: _goToEasterPage,
-                  child: const Text('Easter Egg'),
+                  child: const Text('Hard Easter Egg'),
                 ),
               ],
             ),

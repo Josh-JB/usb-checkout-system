@@ -38,6 +38,7 @@ dependencies:
   flutter_form_builder: ^7.8.0
   settings_ui: ^2.0.2
   provider: ^6.0.5
+  shared_preferences: ^2.1.0
 
 dev_dependencies:
   flutter_test:

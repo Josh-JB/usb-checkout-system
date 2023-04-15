@@ -12,8 +12,6 @@ class RPickPeriod extends StatefulWidget {
 }
 
 class _RPickPeriodState extends State<RPickPeriod> {
-  Color DefaultColor = const Color.fromARGB(255, 5, 82, 216);
-
   void _goToRPeriod4Page() {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const RPeriod4()));
@@ -34,7 +32,6 @@ class _RPickPeriodState extends State<RPickPeriod> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Reed Page'),
-        backgroundColor: DefaultColor,
       ),
       body: Center(
         child: Column(
@@ -49,9 +46,6 @@ class _RPickPeriodState extends State<RPickPeriod> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(DefaultColor)),
                     onPressed: _goToRPeriod2Page,
                     child: const Text('Click Here')),
               ],
@@ -64,9 +58,6 @@ class _RPickPeriodState extends State<RPickPeriod> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(DefaultColor)),
                     onPressed: _goToRPeriod3Page,
                     child: const Text('Click Here')),
               ],
@@ -79,9 +70,6 @@ class _RPickPeriodState extends State<RPickPeriod> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ElevatedButton(
-                    style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(DefaultColor)),
                     onPressed: _goToRPeriod4Page,
                     child: const Text('Click Here')),
               ],

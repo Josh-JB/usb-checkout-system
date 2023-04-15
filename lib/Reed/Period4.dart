@@ -8,19 +8,34 @@ class RPeriod4 extends StatefulWidget {
   State<RPeriod4> createState() => _RPeriod4State();
 }
 
-List StudentsList = ["Madison Arevalo", "Samuel Brichak", "Benjamin Carlson", "Reginald Dillard",
-"William Green", "Zoe Griffin", "Javiyah Hatton", "Brayden Jones", "Darian Jones", "Nickolas LaColla",
-"Jazmine Simpson", "Jahonesty Spann", "Jonathan Spurgeon", "Ke'Ajah Sullivan", "Braylen Thompson",
-"Zyheir Wallace", "Damaijae Williams", "Arianna Wofford", "Anthony Wolfe"];
+List StudentsList = [
+  "Madison Arevalo",
+  "Samuel Brichak",
+  "Benjamin Carlson",
+  "Reginald Dillard",
+  "William Green",
+  "Zoe Griffin",
+  "Javiyah Hatton",
+  "Brayden Jones",
+  "Darian Jones",
+  "Nickolas LaColla",
+  "Jazmine Simpson",
+  "Jahonesty Spann",
+  "Jonathan Spurgeon",
+  "Ke'Ajah Sullivan",
+  "Braylen Thompson",
+  "Zyheir Wallace",
+  "Damaijae Williams",
+  "Arianna Wofford",
+  "Anthony Wolfe"
+];
 
 class _RPeriod4State extends State<RPeriod4> {
-  Color DefaultColor = const Color.fromARGB(255, 5, 82, 216);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Reed Period 4'),
-        backgroundColor: DefaultColor,
       ),
       body: Center(
         child: Column(

@@ -8,49 +8,71 @@ class HPeriod1 extends StatefulWidget {
   State<HPeriod1> createState() => _HPeriod1State();
 }
 
-List StudentsList = ["Brandon Admire", "Lauren Averett ", "Nicholas Baldwin ", "Brayden Brown ",
- "Sa'liyah Brownlee ", "Jerry Carroll ", "Daniel Chavez ", "Canyon Crocker ", "Reginald Dillard ", "Alexandra Falzon ",
-  "French Pierce", "Gibbs Cole", "Gray Mikell", "Hamilton Jack", "Hudson Tyler", "Jenkins-Bellows Joshua", 
-  "Joe Jennings ", "Rowan Long ", "Christian Morales ", "Taylor Phillips ", "Aidan Sindelar ", "Lucas Still "];
+List StudentsList = [
+  "Brandon Admire",
+  "Lauren Averett ",
+  "Nicholas Baldwin ",
+  "Brayden Brown ",
+  "Sa'liyah Brownlee ",
+  "Jerry Carroll ",
+  "Daniel Chavez ",
+  "Canyon Crocker ",
+  "Reginald Dillard ",
+  "Alexandra Falzon ",
+  "French Pierce",
+  "Gibbs Cole",
+  "Gray Mikell",
+  "Hamilton Jack",
+  "Hudson Tyler",
+  "Jenkins-Bellows Joshua",
+  "Joe Jennings ",
+  "Rowan Long ",
+  "Christian Morales ",
+  "Taylor Phillips ",
+  "Aidan Sindelar ",
+  "Lucas Still "
+];
 
 class _HPeriod1State extends State<HPeriod1> {
-  Color DefaultColor = const Color.fromARGB(255, 5, 82, 216);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Hammond Period 1'),
-        backgroundColor: DefaultColor,
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Divider(),
-            FormBuilderDropdown(name: "Students", 
-            decoration: const InputDecoration(
-            labelText: "USB 1"),
-            items: StudentsList
-            .map((e) => DropdownMenuItem(value: e, child: Text(e.toString())))
-            .toList(),),
-            FormBuilderDropdown(name: "Students", 
-            decoration: const InputDecoration(
-            labelText: "USB 2"),
-            items: StudentsList
-            .map((e) => DropdownMenuItem(value: e, child: Text(e.toString())))
-            .toList(),),
-            FormBuilderDropdown(name: "Students", 
-            decoration: const InputDecoration(
-            labelText: "USB 3"),
-            items: StudentsList
-            .map((e) => DropdownMenuItem(value: e, child: Text(e.toString())))
-            .toList(),),
-            FormBuilderDropdown(name: "Students", 
-            decoration: const InputDecoration(
-            labelText: "USB 4"),
-            items: StudentsList
-            .map((e) => DropdownMenuItem(value: e, child: Text(e.toString())))
-            .toList(),),
+            FormBuilderDropdown(
+              name: "Students",
+              decoration: const InputDecoration(labelText: "USB 1"),
+              items: StudentsList.map((e) =>
+                      DropdownMenuItem(value: e, child: Text(e.toString())))
+                  .toList(),
+            ),
+            FormBuilderDropdown(
+              name: "Students",
+              decoration: const InputDecoration(labelText: "USB 2"),
+              items: StudentsList.map((e) =>
+                      DropdownMenuItem(value: e, child: Text(e.toString())))
+                  .toList(),
+            ),
+            FormBuilderDropdown(
+              name: "Students",
+              decoration: const InputDecoration(labelText: "USB 3"),
+              items: StudentsList.map((e) =>
+                      DropdownMenuItem(value: e, child: Text(e.toString())))
+                  .toList(),
+            ),
+            FormBuilderDropdown(
+              name: "Students",
+              decoration: const InputDecoration(labelText: "USB 4"),
+              items: StudentsList.map((e) =>
+                      DropdownMenuItem(value: e, child: Text(e.toString())))
+                  .toList(),
+            ),
             const Spacer(),
           ],
         ),
