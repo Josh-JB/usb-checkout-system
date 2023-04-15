@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:usb_checkout_system/EasterEgg/EasterEggHard_end.dart';
@@ -128,6 +129,22 @@ class _EasterEggHardState extends State<EasterEggHard> {
     });
   }
 
+  void _checkIfRight(int row, int col) {
+    print("row :: $row :: col :: $col");
+
+    int rightRow = 2;
+    int rightCol = 5;
+
+    Map<String, dynamic> progress = {
+      "0": {"row": 1, "col": 2},
+      "1": {"row": 8, "col": 2}
+    };
+
+    if (row == rightRow && col == rightCol) {
+      print("You win!");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -138,30 +155,31 @@ class _EasterEggHardState extends State<EasterEggHard> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          ButtonBar(
-            alignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              for (int i = 1; i < 10; ++i)
-                ButtonBar(
-                  alignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    for (int j = 1; j < 6; ++j)
-                      ElevatedButton(
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all<Color>(background9)),
-                        onPressed: () {
-                          // Check if this is one of the random ones
-                        },
-                        child: Text(
-                          "Row :: ${j.toString()} Button ${i.toString()}",
-                          style: TextStyle(color: background9),
-                        ),
-                      ),
-                  ],
-                ),
-            ],
-          ),
+          // ButtonBar(
+          //   alignment: MainAxisAlignment.spaceEvenly,
+          // children: [
+          for (int row = 1; row < 10; ++row)
+            ButtonBar(
+              alignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                for (int col = 1; col < 6; ++col)
+                  ElevatedButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(background9)),
+                    onPressed: () {
+                      // Check if this is one of the random ones
+                      _checkIfRight(row, col);
+                    },
+                    child: Text(
+                      "Row :: ${col.toString()} Button ${row.toString()}",
+                      style: TextStyle(color: background9),
+                    ),
+                  ),
+                // ],
+                // ),
+              ],
+            ),
         ],
       )),
     );
