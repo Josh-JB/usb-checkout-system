@@ -16,11 +16,13 @@ List StudentsList = ["Brandon Admire", "Lauren Averett ", "Nicholas Baldwin ", "
   "Joe Jennings ", "Rowan Long ", "Christian Morales ", "Taylor Phillips ", "Aidan Sindelar ", "Lucas Still "];
 
 class _HPeriod2State extends State<HPeriod2> {
+  Color DefaultColor = const Color.fromARGB(255, 5, 82, 216);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Hammond Period 2'),
+        backgroundColor: DefaultColor,
       ),
       body: Center(
         child: Column(

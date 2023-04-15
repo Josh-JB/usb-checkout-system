@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
+// import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:usb_checkout_system/Drawer/DrawerNav.dart';
 import 'package:usb_checkout_system/Drawer/Setting.dart';
 import 'package:usb_checkout_system/EasterEgg/Easter_Egg.dart';
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: const Color.fromARGB(255, 5, 82, 216),
       ),
       home: const MyHomePage(title: 'USB Checkout System Home Page'),
     );
@@ -35,7 +35,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  Color DefaultColor = Colors.red;
+  Color DefaultColor = const Color.fromARGB(255, 5, 82, 216);
   int whatcolorS = 0;
   String whatcolorR = 'Blue';
   void _goToHPickPeriodPage() {

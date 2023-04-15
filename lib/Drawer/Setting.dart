@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 
 class Setting extends StatefulWidget {
@@ -11,7 +9,7 @@ class Setting extends StatefulWidget {
 }
 
 class _SettingState extends State<Setting> {
-  Color DefaultColor = Colors.blue;
+  Color DefaultColor = const Color.fromARGB(255, 5, 82, 216);
   String whatcolorR = 'Blue';
   int whatcolorS = 0;
   void _RadioDefaultColor(whatcolorR) {
@@ -36,6 +34,8 @@ class _SettingState extends State<Setting> {
         DefaultColor = Colors.pink;
       } else if (whatcolorR == 'Yellow') {
         DefaultColor = Colors.yellow;
+      }else if (whatcolorR == 'Deep Blue') {
+        DefaultColor = const Color.fromARGB(255, 5, 82, 216);
       }
     });
   }
@@ -67,11 +67,11 @@ class _SettingState extends State<Setting> {
             decoration: const InputDecoration(
               labelText: 'My chosen Color',
             ),
-            initialValue: 'Blue',
+            initialValue: 'Deep Blue',
             name: 'your_color',
             onChanged: _RadioDefaultColor,
             options: [
-              'Blue','Red','Amber','Green','Purple','Brown','Cyan','Orange','Pink','Yellow'
+              'Deep Blue','Blue','Red','Amber','Green','Purple','Brown','Cyan','Orange','Pink','Yellow'
             ]
                 .map((whatcolorR) => FormBuilderFieldOption(
                       value: whatcolorR,

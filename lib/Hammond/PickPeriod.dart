@@ -13,6 +13,8 @@ class HPickPeriod extends StatefulWidget {
 }
 
 class _HPickPeriodState extends State<HPickPeriod> {
+  Color DefaultColor = const Color.fromARGB(255, 5, 82, 216);
+
   void _goToHPeriod1Page() {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (context) => const HPeriod1()));
@@ -33,6 +35,7 @@ class _HPickPeriodState extends State<HPickPeriod> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Hammond Page'),
+        backgroundColor: DefaultColor,
       ),
       body: Center(
         child: Column(
@@ -49,23 +52,27 @@ class _HPickPeriodState extends State<HPickPeriod> {
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Period 2',
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
+                Text('Period 2',
+                    style: Theme.of(context).textTheme.headlineSmall),
                 ElevatedButton(
-                    onPressed: _goToHPeriod2Page, child: Text('Click Here')),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(DefaultColor)),
+                    onPressed: _goToHPeriod2Page,
+                    child: const Text('Click Here')),
               ],
             ),
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'Period 4',
-                  style: Theme.of(context).textTheme.headlineSmall,
-                ),
+                Text('Period 4',
+                    style: Theme.of(context).textTheme.headlineSmall),
                 ElevatedButton(
-                    onPressed: _goToHPeriod3Page, child: Text('Click Here')),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(DefaultColor)),
+                    onPressed: _goToHPeriod3Page,
+                    child: const Text('Click Here')),
               ],
             ),
             const Spacer(),
