@@ -53,7 +53,6 @@ class _EasterEggHardState extends State<EasterEggHard> {
 
   void _checkIfRight(int row, int col) {
     setState(() {
-        _RandomizeButton();
       if (reset == 1) {
         background1 = Colors.white;
         background2 = Colors.white;
@@ -137,6 +136,7 @@ class _EasterEggHardState extends State<EasterEggHard> {
           reset++;
         }
       }
+        _RandomizeButton();
     });
   }
 
