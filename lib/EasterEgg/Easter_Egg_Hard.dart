@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -23,8 +22,20 @@ class _EasterEggHardState extends State<EasterEggHard> {
   Color background8 = Colors.white;
   Color background9 = Colors.white;
 
+  int ButtonPosition1 = 0;
+  int ButtonPosition2 = 0;
+  int ButtonPosition3 = 0;
+  int ButtonPosition4 = 0;
+  int ButtonPosition5 = 0;
+  int ButtonPosition6 = 0;
+  int ButtonPosition7 = 0;
+  int ButtonPosition8 = 0;
+  int ButtonPosition9 = 0;
+
   int progress = 0;
   int whatbutton = 0;
+  int whatrow = 0;
+  int whatcol = 0;
   int reset = 0;
 
   void _goToEasterHEndPage() {
@@ -32,10 +43,17 @@ class _EasterEggHardState extends State<EasterEggHard> {
         MaterialPageRoute(builder: (context) => const EasterEggHardEndPage()));
   }
 
-  void _AssignButton() {}
+  void _RandomizeButton() {
+    whatrow = Random().nextInt(10);
+    whatrow++;
+    whatcol = Random().nextInt(5);
+    whatcol++;
+    print('Row :: $whatrow, Col :: $whatcol');
+  }
 
-  void _changeColor(int _whatbutton) {
+  void _checkIfRight(int row, int col) {
     setState(() {
+        _RandomizeButton();
       if (reset == 1) {
         background1 = Colors.white;
         background2 = Colors.white;
@@ -47,41 +65,34 @@ class _EasterEggHardState extends State<EasterEggHard> {
         background8 = Colors.white;
         background9 = Colors.white;
         progress = 0;
-        whatbutton = 0;
+        whatrow = 0;
+        whatcol = 0;
         reset = 0;
-      } else if (progress == 0 && 1 == _whatbutton && reset == 0) {
+      } else if (progress == 0 && row == whatrow && col == whatcol && reset == 0) {
         background1 = Colors.green;
         progress++;
-        whatbutton = 0;
-      } else if (progress == 1 && 2 == _whatbutton) {
+      } else if (progress == 1 && row == whatrow && col == whatcol) {
         background2 = Colors.green;
         progress++;
-        whatbutton = 0;
-      } else if (progress == 2 && 3 == _whatbutton) {
+      } else if (progress == 2 && row == whatrow && col == whatcol) {
         background3 = Colors.green;
         progress++;
-        whatbutton = 0;
-      } else if (progress == 3 && 4 == _whatbutton) {
+      } else if (progress == 3 && row == whatrow && col == whatcol) {
         background4 = Colors.green;
         progress++;
-        whatbutton = 0;
-      } else if (progress == 4 && 5 == _whatbutton) {
+      } else if (progress == 4 && row == whatrow && col == whatcol) {
         background5 = Colors.green;
         progress++;
-        whatbutton = 0;
-      } else if (progress == 5 && 6 == _whatbutton) {
+      } else if (progress == 5 && row == whatrow && col == whatcol) {
         background6 = Colors.green;
         progress++;
-        whatbutton = 0;
-      } else if (progress == 6 && 7 == _whatbutton) {
+      } else if (progress == 6 && row == whatrow && col == whatcol) {
         background7 = Colors.green;
         progress++;
-        whatbutton = 0;
-      } else if (progress == 7 && 8 == _whatbutton) {
+      } else if (progress == 7 && row == whatrow && col == whatcol) {
         background8 = Colors.green;
         progress++;
-        whatbutton = 0;
-      } else if (progress == 8 && 9 == _whatbutton) {
+      } else if (progress == 8 && row == whatrow && col == whatcol) {
         background9 = Colors.green;
         progress++;
         _goToEasterHEndPage();
@@ -129,22 +140,6 @@ class _EasterEggHardState extends State<EasterEggHard> {
     });
   }
 
-  void _checkIfRight(int row, int col) {
-    print("row :: $row :: col :: $col");
-
-    int rightRow = 2;
-    int rightCol = 5;
-
-    Map<String, dynamic> progress = {
-      "0": {"row": 1, "col": 2},
-      "1": {"row": 8, "col": 2}
-    };
-
-    if (row == rightRow && col == rightCol) {
-      print("You win!");
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -155,29 +150,25 @@ class _EasterEggHardState extends State<EasterEggHard> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          // ButtonBar(
-          //   alignment: MainAxisAlignment.spaceEvenly,
-          // children: [
           for (int row = 1; row < 10; ++row)
             ButtonBar(
               alignment: MainAxisAlignment.spaceEvenly,
               children: [
                 for (int col = 1; col < 6; ++col)
                   ElevatedButton(
-                    style: ButtonStyle(
+                    style: ButtonStyle( 
                         backgroundColor:
                             MaterialStateProperty.all<Color>(background9)),
                     onPressed: () {
                       // Check if this is one of the random ones
                       _checkIfRight(row, col);
                     },
-                    child: Text(
-                      "Row :: ${col.toString()} Button ${row.toString()}",
-                      style: TextStyle(color: background9),
+                    child: const Text(
+                      "",
+                      // "${col.toString()}${row.toString()}",
+                      // style: TextStyle(color: background9),
                     ),
                   ),
-                // ],
-                // ),
               ],
             ),
         ],

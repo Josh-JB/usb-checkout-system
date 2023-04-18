@@ -8,7 +8,6 @@ import 'package:usb_checkout_system/EasterEgg/Easter_Egg.dart';
 import 'package:usb_checkout_system/Hammond/PickPeriod.dart';
 import 'package:usb_checkout_system/Reed/PickPeriod.dart';
 import 'package:usb_checkout_system/models/theme.model.dart';
-
 import 'EasterEgg/Easter_Egg_Hard.dart';
 
 void main() async {
