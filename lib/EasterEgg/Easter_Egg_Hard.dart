@@ -44,11 +44,11 @@ class _EasterEggHardState extends State<EasterEggHard> {
   }
 
   void _RandomizeButton() {
-    whatrow = Random().nextInt(10);
+    whatrow = Random().nextInt(9);
     whatrow++;
     whatcol = Random().nextInt(5);
     whatcol++;
-    print('Row :: $whatrow, Col :: $whatcol');
+    print('Row :: $whatrow, Col :: $whatcol, Progress :: $progress');
   }
 
   void _checkIfRight(int row, int col) {
@@ -144,7 +144,7 @@ class _EasterEggHardState extends State<EasterEggHard> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hard mode'),
+        title: const Text('immpossible mode'),
       ),
       body: Center(
           child: Column(
