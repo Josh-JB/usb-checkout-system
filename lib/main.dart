@@ -8,9 +8,11 @@ import 'package:usb_checkout_system/EasterEgg/Easter_Egg.dart';
 import 'package:usb_checkout_system/Hammond/PickPeriod.dart';
 import 'package:usb_checkout_system/Reed/PickPeriod.dart';
 import 'package:usb_checkout_system/models/theme.model.dart';
-import 'EasterEgg/Easter_Egg_Hard.dart';
+import 'EasterEgg/Easter_Egg_Immpossible.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   final prefs = await SharedPreferences.getInstance();
 
   ThemeModel themeModel = ThemeModel(prefs);
@@ -65,9 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
         .push(MaterialPageRoute(builder: (context) => const EasterEgg()));
   }
 
-  void _goToEasterHardPage() {
+  void _goToEasterImmpossiblePage() {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const EasterEggHard()));
+        .push(MaterialPageRoute(builder: (context) => const EasterEggImmpossible()));
   }
 
   void _goToSettingPage() {
@@ -146,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Colors.white)),
-                  onPressed: _goToEasterHardPage,
+                  onPressed: _goToEasterImmpossiblePage,
                   child: const Text('Hard Easter Egg'),
                 ),
                 ElevatedButton(

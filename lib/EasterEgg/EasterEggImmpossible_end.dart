@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class EasterEggHardEndPage extends StatefulWidget {
-  const EasterEggHardEndPage({super.key});
+class EasterEggImmpossibleEndPage extends StatefulWidget {
+  const EasterEggImmpossibleEndPage({super.key});
 
   @override
-  State<EasterEggHardEndPage> createState() => _EasterEggHardEndPageState();
+  State<EasterEggImmpossibleEndPage> createState() => _EasterEggImmpossibleEndPageState();
 }
 
-class _EasterEggHardEndPageState extends State<EasterEggHardEndPage> {
+class _EasterEggImmpossibleEndPageState extends State<EasterEggImmpossibleEndPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
