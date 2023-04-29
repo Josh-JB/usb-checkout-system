@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-// import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:usb_checkout_system/AppFunction.dart';
 import 'package:usb_checkout_system/Drawer/DrawerNav.dart';
 import 'package:usb_checkout_system/Drawer/Setting.dart';
-import 'package:usb_checkout_system/EasterEgg/Easter_Egg.dart';
+import 'package:usb_checkout_system/EasterEgg/Easter_Egg_Easy.dart';
 import 'package:usb_checkout_system/Hammond/PickPeriod.dart';
 import 'package:usb_checkout_system/Reed/PickPeriod.dart';
 import 'package:usb_checkout_system/models/theme.model.dart';
-import 'EasterEgg/Easter_Egg_Immpossible.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,30 +51,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  void _goToHPickPeriodPage() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const HPickPeriod()));
-  }
-
-  void _goToRPickPeriodPage() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const RPickPeriod()));
-  }
-
-  void _goToEasterPage() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const EasterEgg()));
-  }
-
-  void _goToEasterImmpossiblePage() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const EasterEggImmpossible()));
-  }
-
-  void _goToSettingPage() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const Setting()));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
             ),
-            DrawerTile(tileText: "Setting", onTap: _goToSettingPage),
+            DrawerTile(tileText: "Setting", onTap: () => goToSettingPage(context),),
           ],
         ),
       ),
@@ -123,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ElevatedButton(
-                    onPressed: _goToHPickPeriodPage,
+                    onPressed: () => goToHPickPeriodPage(context),
                     child: const Text('Click Here')),
               ],
             ),
@@ -136,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ElevatedButton(
-                    onPressed: _goToRPickPeriodPage,
+                    onPressed: () => goToRPickPeriodPage(context),
                     child: const Text('Click Here'))
               ],
             ),
@@ -148,15 +123,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all<Color>(Colors.white)),
-                  onPressed: _goToEasterImmpossiblePage,
-                  child: const Text('Hard Easter Egg'),
-                ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white)),
-                  onPressed: _goToEasterPage,
-                  child: const Text('Hard Easter Egg'),
+                  onPressed: () => goToEasterEasyPage(context),
+                  child: const Text('Easy Mode'),
                 ),
               ],
             ),
