@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class EasterEggImmpossibleEndPage extends StatefulWidget {
-  const EasterEggImmpossibleEndPage({super.key});
+class EasterEggImpossibleEndPage extends StatefulWidget {
+  const EasterEggImpossibleEndPage({super.key});
 
   @override
-  State<EasterEggImmpossibleEndPage> createState() => _EasterEggImmpossibleEndPageState();
+  State<EasterEggImpossibleEndPage> createState() => _EasterEggImpossibleEndPageState();
 }
 
-class _EasterEggImmpossibleEndPageState extends State<EasterEggImmpossibleEndPage> {
+class _EasterEggImpossibleEndPageState extends State<EasterEggImpossibleEndPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,10 +21,10 @@ class _EasterEggImmpossibleEndPageState extends State<EasterEggImmpossibleEndPag
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'WOW :O',
+            'How Just How',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          const Text('Made By Nicolas LePere')
+          const Text('Made By Joshua Jenkins')
         ],
       )),
     );

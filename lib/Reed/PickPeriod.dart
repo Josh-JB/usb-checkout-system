@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:usb_checkout_system/AppFunction.dart';
 import 'package:usb_checkout_system/Reed/Period4.dart';
 import 'package:usb_checkout_system/Reed/Period2.dart';
 import 'package:usb_checkout_system/Reed/Period3.dart';
@@ -12,21 +13,6 @@ class RPickPeriod extends StatefulWidget {
 }
 
 class _RPickPeriodState extends State<RPickPeriod> {
-  void _goToRPeriod4Page() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const RPeriod4()));
-  }
-
-  void _goToRPeriod2Page() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const RPeriod2()));
-  }
-
-  void _goToRPeriod3Page() {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => const RPeriod3()));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +32,7 @@ class _RPickPeriodState extends State<RPickPeriod> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ElevatedButton(
-                    onPressed: _goToRPeriod2Page,
+                    onPressed: () => goToRPeriod2Page(context),
                     child: const Text('Click Here')),
               ],
             ),
@@ -58,7 +44,7 @@ class _RPickPeriodState extends State<RPickPeriod> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ElevatedButton(
-                    onPressed: _goToRPeriod3Page,
+                    onPressed: () => goToRPeriod3Page(context),
                     child: const Text('Click Here')),
               ],
             ),
@@ -70,7 +56,7 @@ class _RPickPeriodState extends State<RPickPeriod> {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 ElevatedButton(
-                    onPressed: _goToRPeriod4Page,
+                    onPressed: () => goToRPeriod4Page(context),
                     child: const Text('Click Here')),
               ],
             ),

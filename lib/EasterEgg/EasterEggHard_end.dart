@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 
-class EasterEggEndPage extends StatefulWidget {
-  const EasterEggEndPage({super.key});
+import '../AppFunction.dart';
+
+class EasterEggHardEndPage extends StatefulWidget {
+  const EasterEggHardEndPage({super.key});
 
   @override
-  State<EasterEggEndPage> createState() => _EasterEggEndPageState();
+  State<EasterEggHardEndPage> createState() => _EasterEggHardEndPageState();
 }
 
-class _EasterEggEndPageState extends State<EasterEggEndPage> {
+class _EasterEggHardEndPageState extends State<EasterEggHardEndPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,10 +23,10 @@ class _EasterEggEndPageState extends State<EasterEggEndPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Well Done',
+            'Impressive ;)',
             style: Theme.of(context).textTheme.headlineLarge,
           ),
-          const Text('Made By Nicolas LePere')
+          const Text('Made By Joshua Jenkins'),
         ],
       )),
     );

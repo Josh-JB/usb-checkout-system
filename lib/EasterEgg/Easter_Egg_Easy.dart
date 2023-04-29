@@ -2,16 +2,16 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:usb_checkout_system/EasterEgg/EasterEgg_end.dart';
+import 'package:usb_checkout_system/AppFunction.dart';
 
-class EasterEgg extends StatefulWidget {
-  const EasterEgg({super.key});
+class EasterEggEasy extends StatefulWidget {
+  const EasterEggEasy({super.key});
 
   @override
-  State<EasterEgg> createState() => _EasterEggState();
+  State<EasterEggEasy> createState() => _EasterEggEasyState();
 }
 
-class _EasterEggState extends State<EasterEgg> {
+class _EasterEggEasyState extends State<EasterEggEasy> {
   Color background1 = Colors.white;
   Color background2 = Colors.white;
   Color background3 = Colors.white;
@@ -25,11 +25,6 @@ class _EasterEggState extends State<EasterEgg> {
   int progress = 0;
   int whatbutton = 0;
   int reset = 0;
-
-  void _goToEasterEndPage() {
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => const EasterEggEndPage()));
-  }
 
   void _changeColor(int _whatbutton) {
     setState(() {
@@ -81,7 +76,7 @@ class _EasterEggState extends State<EasterEgg> {
       } else if (progress == 8 && 9 == _whatbutton) {
         background9 = Colors.green;
         progress++;
-        _goToEasterEndPage();
+        goToEasterEEndPage(context);
       } else {
         if (progress == 0) {
           background1 = Colors.red;
