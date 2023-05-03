@@ -9,6 +9,7 @@ class RPeriod2 extends StatefulWidget {
 }
 
 List StudentsList = [
+  "",
   "Curtis Barnes",
   "Sophia Browning",
   "Jack Carnes",
@@ -29,7 +30,7 @@ class _RPeriod2State extends State<RPeriod2> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Reed Period 2'),
+        title: const Text('Hammond Period 2'),
       ),
       body: Center(
         child: Column(
@@ -60,6 +61,34 @@ class _RPeriod2State extends State<RPeriod2> {
             FormBuilderDropdown(
               name: "Students",
               decoration: const InputDecoration(labelText: "USB 4"),
+              items: StudentsList.map((e) =>
+                      DropdownMenuItem(value: e, child: Text(e.toString())))
+                  .toList(),
+            ),
+            FormBuilderDropdown(
+              name: "Students",
+              decoration: const InputDecoration(labelText: "USB 5"),
+              items: StudentsList.map((e) =>
+                      DropdownMenuItem(value: e, child: Text(e.toString())))
+                  .toList(),
+            ),
+            FormBuilderDropdown(
+              name: "Students",
+              decoration: const InputDecoration(labelText: "USB 6"),
+              items: StudentsList.map((e) =>
+                      DropdownMenuItem(value: e, child: Text(e.toString())))
+                  .toList(),
+            ),
+            FormBuilderDropdown(
+              name: "Students",
+              decoration: const InputDecoration(labelText: "USB 7"),
+              items: StudentsList.map((e) =>
+                      DropdownMenuItem(value: e, child: Text(e.toString())))
+                  .toList(),
+            ),
+            FormBuilderDropdown(
+              name: "Students",
+              decoration: const InputDecoration(labelText: "USB 8"),
               items: StudentsList.map((e) =>
                       DropdownMenuItem(value: e, child: Text(e.toString())))
                   .toList(),
