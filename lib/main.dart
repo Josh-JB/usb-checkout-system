@@ -3,10 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:usb_checkout_system/AppFunction.dart';
 import 'package:usb_checkout_system/Drawer/DrawerNav.dart';
-import 'package:usb_checkout_system/Drawer/Setting.dart';
-import 'package:usb_checkout_system/EasterEgg/Easter_Egg_Easy.dart';
-import 'package:usb_checkout_system/Hammond/PickPeriod.dart';
-import 'package:usb_checkout_system/Reed/PickPeriod.dart';
 import 'package:usb_checkout_system/models/theme.model.dart';
 
 void main() async {

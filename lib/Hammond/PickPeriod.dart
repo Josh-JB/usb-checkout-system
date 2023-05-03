@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:usb_checkout_system/AppFunction.dart';
-import 'package:usb_checkout_system/Hammond/Period1.dart';
-import 'package:usb_checkout_system/Hammond/Period2.dart';
-import 'package:usb_checkout_system/Hammond/Period4.dart';
 
 /// Hammond page, let him pick what period he is on
 class HPickPeriod extends StatefulWidget {
@@ -26,13 +23,6 @@ class _HPickPeriodState extends State<HPickPeriod> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Divider(),
-            // ButtonBar(
-            //   alignment: MainAxisAlignment.center,
-            //   children: [
-            //     Text('Period 1', style: Theme.of(context).textTheme.headlineSmall,),
-            //     ElevatedButton(onPressed: _goToHPeriod1Page, child: Text('Click Here')),
-            //   ],
-            // ),
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: [

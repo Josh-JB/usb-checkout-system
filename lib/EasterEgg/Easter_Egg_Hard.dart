@@ -20,12 +20,12 @@ class _EasterEggHardState extends State<EasterEggHard> {
   Map<int, int> whatcol = List<int>.generate(9, (i) => 0).asMap();
   Map<int, int> whatrow = List<int>.generate(9, (e) => 0).asMap();
 
-  List<ButtonCoordinate> coordinates = List<ButtonCoordinate>.generate(9, (i) {
-  int col = Random().nextInt(5) + 1;
-  int row = Random().nextInt(9) + 1;
+//   List<ButtonCoordinate> coordinates = List<ButtonCoordinate>.generate(9, (i) {
+//   int col = Random().nextInt(5) + 1;
+//   int row = Random().nextInt(9) + 1;
 
-  return ButtonCoordinate(col, row);
-});
+//   return ButtonCoordinate(col, row);
+// });
 
 
     @override 

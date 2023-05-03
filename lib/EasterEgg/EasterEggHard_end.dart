@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-
-import '../AppFunction.dart';
 
 class EasterEggHardEndPage extends StatefulWidget {
   const EasterEggHardEndPage({super.key});

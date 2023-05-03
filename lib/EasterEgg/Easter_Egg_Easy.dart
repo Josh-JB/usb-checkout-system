@@ -1,8 +1,8 @@
-import 'dart:async';
-import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:usb_checkout_system/AppFunction.dart';
+import 'package:usb_checkout_system/EasterEgg/ButtonCoordinate.dart';
 
 class EasterEggEasy extends StatefulWidget {
   const EasterEggEasy({super.key});
@@ -12,111 +12,75 @@ class EasterEggEasy extends StatefulWidget {
 }
 
 class _EasterEggEasyState extends State<EasterEggEasy> {
-  Color background1 = Colors.white;
-  Color background2 = Colors.white;
-  Color background3 = Colors.white;
-  Color background4 = Colors.white;
-  Color background5 = Colors.white;
-  Color background6 = Colors.white;
-  Color background7 = Colors.white;
-  Color background8 = Colors.white;
-  Color background9 = Colors.white;
 
-  int progress = 0;
-  int whatbutton = 0;
+  int progress = 9;
   int reset = 0;
 
-  void _changeColor(int _whatbutton) {
+  Map<int, Color> backgroundcolorRow = List<Color>.generate(9, (i) => Colors.white).asMap();
+  Map<int, int> whatcol = List<int>.generate(9, (i) => 0).asMap();
+  Map<int, int> whatrow = List<int>.generate(9, (e) => 0).asMap();
+
+//   List<ButtonCoordinate> coordinates = List<ButtonCoordinate>.generate(9, (i) {
+//   int col = Random().nextInt(5) + 1;
+//   int row = Random().nextInt(9) + 1;
+
+//   return ButtonCoordinate(col, row);
+// });
+
+
+    @override 
+  void initState() {
+    print("Activating InItState");
+    super.initState();
+    backgroundcolorRow = List<Color>.generate(9, (index) => Colors.white).asMap().map((key, value)
+     => MapEntry((key + 1), value));
+    whatcol = List<int>.generate(9, (index) => 0).asMap().map((key, value)
+     => MapEntry((key + 1), value));
+    whatrow = List<int>.generate(9, (index) => 0).asMap().map((key, value)
+     => MapEntry((key + 1), value));
+     whatrow[9] = 1; whatcol[9] = 1; 
+     whatrow[8] = 8; whatcol[8] = 5; 
+     whatrow[7] = 5; whatcol[7] = 2; 
+     whatrow[6] = 4; whatcol[6] = 4; 
+     whatrow[5] = 2; whatcol[5] = 3; 
+     whatrow[4] = 7; whatcol[4] = 1; 
+     whatrow[3] = 3; whatcol[3] = 5; 
+     whatrow[2] = 9; whatcol[2] = 2; 
+     whatrow[1] = 6; whatcol[1] = 3; 
+  }
+
+  Color _WhatButtonColor(int ButtonColorRow){
+    Color RowColor = Colors.white;
+    RowColor = backgroundcolorRow[ButtonColorRow] ?? Colors.white;
+    return RowColor;
+  }
+
+  void _checkIfRight(int row, int col) {
     setState(() {
-      if (reset == 1) {
-        background1 = Colors.white;
-        background2 = Colors.white;
-        background3 = Colors.white;
-        background4 = Colors.white;
-        background5 = Colors.white;
-        background6 = Colors.white;
-        background7 = Colors.white;
-        background8 = Colors.white;
-        background9 = Colors.white;
-        progress = 0;
-        whatbutton = 0;
+      if(reset == 1){
+        backgroundcolorRow.keys.forEach((key) {
+          backgroundcolorRow[key] = Colors.white;
+        });
+        progress = 9;
         reset = 0;
-      } else if (progress == 0 && 1 == _whatbutton && reset == 0) {
-        background1 = Colors.green;
-        progress++;
-        whatbutton = 0;
-      } else if (progress == 1 && 2 == _whatbutton) {
-        background2 = Colors.green;
-        progress++;
-        whatbutton = 0;
-      } else if (progress == 2 && 3 == _whatbutton) {
-        background3 = Colors.green;
-        progress++;
-        whatbutton = 0;
-      } else if (progress == 3 && 4 == _whatbutton) {
-        background4 = Colors.green;
-        progress++;
-        whatbutton = 0;
-      } else if (progress == 4 && 5 == _whatbutton) {
-        background5 = Colors.green;
-        progress++;
-        whatbutton = 0;
-      } else if (progress == 5 && 6 == _whatbutton) {
-        background6 = Colors.green;
-        progress++;
-        whatbutton = 0;
-      } else if (progress == 6 && 7 == _whatbutton) {
-        background7 = Colors.green;
-        progress++;
-        whatbutton = 0;
-      } else if (progress == 7 && 8 == _whatbutton) {
-        background8 = Colors.green;
-        progress++;
-        whatbutton = 0;
-      } else if (progress == 8 && 9 == _whatbutton) {
-        background9 = Colors.green;
-        progress++;
-        goToEasterEEndPage(context);
+        print('reset');
+      }else if(row == whatrow[progress] && col == whatcol[progress] && reset == 0){
+        backgroundcolorRow[progress] = Colors.green;
+        progress--;
+        if(progress == 0){
+          goToEasterEEndPage(context);
+        }else{}
+        print('yes');
+        reset = 0;
+      }else if(progress >= 1){
+        backgroundcolorRow[progress] = Colors.red;
+        reset++;
+        print('no');
       } else {
-        if (progress == 0) {
-          background1 = Colors.red;
-          reset++;
-        } else if (progress == 1) {
-          background2 = Colors.red;
-          reset++;
-        } else if (progress == 2) {
-          background3 = Colors.red;
-          reset++;
-        } else if (progress == 3) {
-          background4 = Colors.red;
-          reset++;
-        } else if (progress == 4) {
-          background5 = Colors.red;
-          reset++;
-        } else if (progress == 5) {
-          background6 = Colors.red;
-          reset++;
-        } else if (progress == 6) {
-          background7 = Colors.red;
-          reset++;
-        } else if (progress == 7) {
-          background8 = Colors.red;
-          reset++;
-        } else if (progress == 8) {
-          background9 = Colors.red;
-          reset++;
-        } else {
-          background1 = Colors.red;
-          background2 = Colors.red;
-          background3 = Colors.red;
-          background4 = Colors.red;
-          background5 = Colors.red;
-          background6 = Colors.red;
-          background7 = Colors.red;
-          background8 = Colors.red;
-          background9 = Colors.red;
-          reset++;
-        }
+        backgroundcolorRow.keys.forEach((key) {
+          backgroundcolorRow[key] = Colors.red;
+        });
+        reset++;
       }
     });
   }
@@ -131,366 +95,24 @@ class _EasterEggEasyState extends State<EasterEggEasy> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          ButtonBar(
-            alignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background9)),
-                onPressed: () => _changeColor(1),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background9)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background9)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background9)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background9)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-            ],
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background8)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background8)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background8)),
-                onPressed: () => _changeColor(5),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background8)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background8)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-            ],
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background7)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background7)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background7)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background7)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background7)),
-                onPressed: () => _changeColor(7),
-                child: const Text(''),
-              ),
-            ],
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background6)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background6)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background6)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background6)),
-                onPressed: () => _changeColor(4),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background6)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-            ],
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background5)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background5)),
-                onPressed: () => _changeColor(3),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background5)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background5)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background5)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-            ],
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background4)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background4)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background4)),
-                onPressed: () => _changeColor(9),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background4)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background4)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-            ],
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background3)),
-                onPressed: () => _changeColor(6),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background3)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background3)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background3)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background3)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-            ],
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background2)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background2)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background2)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background2)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background2)),
-                onPressed: () => _changeColor(2),
-                child: const Text(''),
-              ),
-            ],
-          ),
-          ButtonBar(
-            alignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background1)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background1)),
-                onPressed: () => _changeColor(8),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background1)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background1)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-              ElevatedButton(
-                style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all<Color>(background1)),
-                onPressed: () => _changeColor(0),
-                child: const Text(''),
-              ),
-            ],
-          ),
+          for (int row = 1; row < 10; ++row)
+            ButtonBar(
+              alignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                for (int col = 1; col < 6; ++col)
+                  ElevatedButton(
+                    style: ButtonStyle( 
+                        backgroundColor:
+                            MaterialStateProperty.all<Color>(_WhatButtonColor(row))),
+                    onPressed: () {
+                      _checkIfRight(row, col);
+                    },
+                    child: const Text(
+                      "",
+                    ),
+                  ),
+              ],
+            ),
         ],
       )),
     );

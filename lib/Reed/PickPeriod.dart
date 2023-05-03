@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:usb_checkout_system/AppFunction.dart';
-import 'package:usb_checkout_system/Reed/Period4.dart';
-import 'package:usb_checkout_system/Reed/Period2.dart';
-import 'package:usb_checkout_system/Reed/Period3.dart';
 
 class RPickPeriod extends StatefulWidget {
   const RPickPeriod({super.key});
