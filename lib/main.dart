@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:usb_checkout_system/AppFunction.dart';
 import 'package:usb_checkout_system/Drawer/DrawerNav.dart';
+import 'package:usb_checkout_system/models/Retain_USB_Data.model.dart';
 import 'package:usb_checkout_system/models/theme.model.dart';
 
 void main() async {
@@ -13,9 +14,13 @@ void main() async {
   ThemeModel themeModel = ThemeModel(prefs);
   themeModel.initialize();
 
+  final RetainDataModel retainDataModel = RetainDataModel(prefs);
+  retainDataModel.initialize();
+
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider<ThemeModel>(create: (_) => themeModel),
+      ChangeNotifierProvider<RetainDataModel>(create: (_) => retainDataModel),
     ],
     child: const MyApp(),
   ));

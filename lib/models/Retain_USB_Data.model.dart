@@ -11,7 +11,7 @@ const String kReedPeriod4Key = "Reed_Period_4";
 const String kHammondPeriod2Key = "Hammond_Period_2";
 const String kHammondPeriod4Key = "Hammond_Period_4";
 
-class RetainInfoModel extends ChangeNotifier {
+class RetainDataModel extends ChangeNotifier {
   SharedPreferences prefs;
 
   bool _retainInfo = true;
@@ -24,7 +24,7 @@ class RetainInfoModel extends ChangeNotifier {
   Map<String, dynamic> _HammondPeriod2 = {};
   Map<String, dynamic> _HammondPeriod4 = {};
 
-  RetainInfoModel(this.prefs);
+  RetainDataModel(this.prefs);
 
   Future<void> initialize() async {
     _retainInfo = prefs.getBool(kRetainInfoConfigKey) ?? true;

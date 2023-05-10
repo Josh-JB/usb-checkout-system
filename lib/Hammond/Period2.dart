@@ -40,13 +40,13 @@ class _HPeriod2State extends State<HPeriod2> {
   @override
   void InItState(){
     super.initState();
-    Map<String, dynamic> USBData =
-        context.read<RetainInfoModel>().HammondPeriod2();
+    Map<String, dynamic> matchData =
+        context.read<RetainDataModel>().HammondPeriod2();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<RetainInfoModel>(
+    return Consumer<RetainDataModel>(
         builder: (context, retain, _) {
     return Scaffold(
       appBar: AppBar(
