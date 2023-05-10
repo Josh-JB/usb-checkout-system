@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
+import 'package:provider/provider.dart';
+import 'package:usb_checkout_system/models/Retain_Data.model.NotM.dart';
+import 'package:usb_checkout_system/models/Retain_USB_Data.model.dart';
 
 class HPeriod2 extends StatefulWidget {
   const HPeriod2({super.key});
@@ -35,6 +38,12 @@ List StudentsList = [
 ];
 
 class _HPeriod2State extends State<HPeriod2> {
+  @override
+  void InItState(){
+    super.initState();
+    Map<String, dynamic> matchData =
+      context.read<RetainInfoModel>().matchScouting();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

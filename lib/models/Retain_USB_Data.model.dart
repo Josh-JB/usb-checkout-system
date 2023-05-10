@@ -34,7 +34,7 @@ extension TempFileNamesExtension on TempFilePath {
 }
 
 class RetainUSBDataModel extends ChangeNotifier {
-  bool _retainInfo = false;
+  bool _retainInfo = true;
 
   bool retainInfo() => _retainInfo;
 
