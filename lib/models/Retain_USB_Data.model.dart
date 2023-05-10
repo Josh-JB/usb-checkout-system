@@ -13,19 +13,19 @@ extension TempFileNamesExtension on TempFilePath {
   String get value {
     switch (this) {
       case TempFilePath.ReedPeriod2:
-        return "temp.match_scouting.json";
+        return "temp.Reed_Period_2.json";
 
       case TempFilePath.ReedPeriod3:
-        return "temp.pit_scouting.json";
+        return "temp.Reed_Period_3.json";
 
       case TempFilePath.ReedPeriod4:
-        return "temp.super_scouting.json";
+        return "temp.Reed_Period_4.json";
 
       case TempFilePath.HammondPeriod2:
-        return "retain.settings.json";
+        return "temp.Hammond_Period_2.json";
 
       case TempFilePath.HammondPeriod4:
-        return "retain.settings.json";
+        return "temp.Hammond_Period_4.json";
 
       case TempFilePath.general:
         return "retain.settings.json";
