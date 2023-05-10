@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:provider/provider.dart';
-import 'package:usb_checkout_system/models/Retain_Data.model.NotM.dart';
 import 'package:usb_checkout_system/models/Retain_USB_Data.model.dart';
 
 class HPeriod2 extends StatefulWidget {
@@ -41,11 +40,14 @@ class _HPeriod2State extends State<HPeriod2> {
   @override
   void InItState(){
     super.initState();
-    Map<String, dynamic> matchData =
-      context.read<RetainInfoModel>().matchScouting();
+    Map<String, dynamic> USBData =
+        context.read<RetainInfoModel>().HammondPeriod2();
   }
+
   @override
   Widget build(BuildContext context) {
+    return Consumer<RetainInfoModel>(
+        builder: (context, retain, _) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Hammond Period 2'),
@@ -116,5 +118,6 @@ class _HPeriod2State extends State<HPeriod2> {
         ),
       ),
     );
+  });
   }
 }
