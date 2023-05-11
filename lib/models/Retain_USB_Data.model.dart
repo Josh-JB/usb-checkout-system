@@ -72,13 +72,13 @@ class RetainDataModel extends ChangeNotifier {
   }
 
     void setHammondPeriod2(Map<String, dynamic> HammondPeriod2) {
-    _ReedPeriod4 = HammondPeriod2;
+    _HammondPeriod2 = HammondPeriod2;
     _writeData();
     notifyListeners();
   }
 
       void setHammondPeriod4(Map<String, dynamic> HammondPeriod4) {
-    _ReedPeriod4 = HammondPeriod4;
+    _HammondPeriod4 = HammondPeriod4;
     _writeData();
     notifyListeners();
   }

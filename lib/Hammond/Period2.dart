@@ -37,87 +37,129 @@ List StudentsList = [
 ];
 
 class _HPeriod2State extends State<HPeriod2> {
+  final Map<String, dynamic> _Hperiod2Data = {};
+
   @override
-  void InItState(){
+  void initState() {
     super.initState();
-    Map<String, dynamic> matchData =
-        context.read<RetainDataModel>().HammondPeriod2();
+    context.read<RetainDataModel>().HammondPeriod2().entries.forEach((action) {
+      _Hperiod2Data[action.key] = action.value;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<RetainDataModel>(
-        builder: (context, retain, _) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Hammond Period 2'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Divider(),
-            FormBuilderDropdown(
-              name: "Students",
-              decoration: const InputDecoration(labelText: "USB 1"),
-              items: StudentsList.map((e) =>
-                      DropdownMenuItem(value: e, child: Text(e.toString())))
-                  .toList(),
-            ),
-            FormBuilderDropdown(
-              name: "Students",
-              decoration: const InputDecoration(labelText: "USB 2"),
-              items: StudentsList.map((e) =>
-                      DropdownMenuItem(value: e, child: Text(e.toString())))
-                  .toList(),
-            ),
-            FormBuilderDropdown(
-              name: "Students",
-              decoration: const InputDecoration(labelText: "USB 3"),
-              items: StudentsList.map((e) =>
-                      DropdownMenuItem(value: e, child: Text(e.toString())))
-                  .toList(),
-            ),
-            FormBuilderDropdown(
-              name: "Students",
-              decoration: const InputDecoration(labelText: "USB 4"),
-              items: StudentsList.map((e) =>
-                      DropdownMenuItem(value: e, child: Text(e.toString())))
-                  .toList(),
-            ),
-            FormBuilderDropdown(
-              name: "Students",
-              decoration: const InputDecoration(labelText: "USB 5"),
-              items: StudentsList.map((e) =>
-                      DropdownMenuItem(value: e, child: Text(e.toString())))
-                  .toList(),
-            ),
-            FormBuilderDropdown(
-              name: "Students",
-              decoration: const InputDecoration(labelText: "USB 6"),
-              items: StudentsList.map((e) =>
-                      DropdownMenuItem(value: e, child: Text(e.toString())))
-                  .toList(),
-            ),
-            FormBuilderDropdown(
-              name: "Students",
-              decoration: const InputDecoration(labelText: "USB 7"),
-              items: StudentsList.map((e) =>
-                      DropdownMenuItem(value: e, child: Text(e.toString())))
-                  .toList(),
-            ),
-            FormBuilderDropdown(
-              name: "Students",
-              decoration: const InputDecoration(labelText: "USB 8"),
-              items: StudentsList.map((e) =>
-                      DropdownMenuItem(value: e, child: Text(e.toString())))
-                  .toList(),
-            ),
-            const Spacer(),
-          ],
+    return Consumer<RetainDataModel>(builder: (context, retain, _) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Hammond Period 2'),
         ),
-      ),
-    );
-  });
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              const Divider(),
+              FormBuilderDropdown(
+                name: "Students",
+                decoration: const InputDecoration(labelText: "USB 1"),
+                items: StudentsList.map((e) =>
+                        DropdownMenuItem(value: e, child: Text(e.toString())))
+                    .toList(),
+                onChanged: (value) {
+                  _Hperiod2Data['usb_1'] = value;
+                  retain.setHammondPeriod2(_Hperiod2Data);
+                },
+                initialValue: _Hperiod2Data['usb_1'],
+              ),
+              FormBuilderDropdown(
+                name: "Students",
+                decoration: const InputDecoration(labelText: "USB 2"),
+                items: StudentsList.map((e) =>
+                        DropdownMenuItem(value: e, child: Text(e.toString())))
+                    .toList(),
+                onChanged: (value) {
+                  _Hperiod2Data['usb_2'] = value;
+                  retain.setHammondPeriod2(_Hperiod2Data);
+                },
+                initialValue: _Hperiod2Data['usb_2'],
+              ),
+              FormBuilderDropdown(
+                name: "Students",
+                decoration: const InputDecoration(labelText: "USB 3"),
+                items: StudentsList.map((e) =>
+                        DropdownMenuItem(value: e, child: Text(e.toString())))
+                    .toList(),
+                onChanged: (value) {
+                  _Hperiod2Data['usb_3'] = value;
+                  retain.setHammondPeriod2(_Hperiod2Data);
+                },
+                initialValue: _Hperiod2Data['usb_3'],
+              ),
+              FormBuilderDropdown(
+                name: "Students",
+                decoration: const InputDecoration(labelText: "USB 4"),
+                items: StudentsList.map((e) =>
+                        DropdownMenuItem(value: e, child: Text(e.toString())))
+                    .toList(),
+                onChanged: (value) {
+                  _Hperiod2Data['usb_4'] = value;
+                  retain.setHammondPeriod2(_Hperiod2Data);
+                },
+                initialValue: _Hperiod2Data['usb_4'],
+              ),
+              FormBuilderDropdown(
+                name: "Students",
+                decoration: const InputDecoration(labelText: "USB 5"),
+                items: StudentsList.map((e) =>
+                        DropdownMenuItem(value: e, child: Text(e.toString())))
+                    .toList(),
+                onChanged: (value) {
+                  _Hperiod2Data['usb_5'] = value;
+                  retain.setHammondPeriod2(_Hperiod2Data);
+                },
+                initialValue: _Hperiod2Data['usb_5'],
+              ),
+              FormBuilderDropdown(
+                name: "Students",
+                decoration: const InputDecoration(labelText: "USB 6"),
+                items: StudentsList.map((e) =>
+                        DropdownMenuItem(value: e, child: Text(e.toString())))
+                    .toList(),
+                onChanged: (value) {
+                  _Hperiod2Data['usb_6'] = value;
+                  retain.setHammondPeriod2(_Hperiod2Data);
+                },
+                initialValue: _Hperiod2Data['usb_6'],
+              ),
+              FormBuilderDropdown(
+                name: "Students",
+                decoration: const InputDecoration(labelText: "USB 7"),
+                items: StudentsList.map((e) =>
+                        DropdownMenuItem(value: e, child: Text(e.toString())))
+                    .toList(),
+                onChanged: (value) {
+                  _Hperiod2Data['usb_7'] = value;
+                  retain.setHammondPeriod2(_Hperiod2Data);
+                },
+                initialValue: _Hperiod2Data['usb_7'],
+              ),
+              FormBuilderDropdown(
+                name: "Students",
+                decoration: const InputDecoration(labelText: "USB 8"),
+                items: StudentsList.map((e) =>
+                        DropdownMenuItem(value: e, child: Text(e.toString())))
+                    .toList(),
+                onChanged: (value) {
+                  _Hperiod2Data['usb_8'] = value;
+                  retain.setHammondPeriod2(_Hperiod2Data);
+                },
+                initialValue: _Hperiod2Data['usb_8'],
+              ),
+              const Spacer(),
+            ],
+          ),
+        ),
+      );
+    });
   }
 }
